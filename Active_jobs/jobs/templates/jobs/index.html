@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Active jobs</title>
+   <style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+<h1> the active job list is:</h1>
+{%if job_list%}
+<table>
+    <thead>
+    <th>eno</th>
+    <th>title</th>
+    <th>category</th>
+    <th>location</th>
+    <th>designation</th>
+    <th>skills</th>
+    <th>description</th>
+    <th>created_at</th>
+    </thead>
+
+   {%for job in job_list%}
+<tr>
+    <td>{{job.eno}}</td>
+     <td>{{job.title}}</td>
+     <td>{{job.category}}</td>
+     <td>{{job.location}}</td>
+     <td>{{job.designation}}</td>
+     <td>{{job.skills}}</td>
+     <td>{{job.description}}</td>
+     <td>{{job.created_at}}</td>
+</tr>
+{% endfor %}
+</table>
+{%else%}
+<p> no records found</p>
+{% endif %}
+
+
+</body>
+</html>
